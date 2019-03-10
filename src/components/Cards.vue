@@ -8,7 +8,6 @@
               <v-flex xs5>
                 <v-img
                 class="white--text"
-                width="200px"
                 :src="character.image" :alt="character.name"
                 contain>
                 </v-img>
@@ -18,9 +17,20 @@
                 <div>
                   <div class="headline font-weight-black text-uppercase">{{ character.name }}</div>
                   <div class="font-weight-thin">{{ character.species }}</div>
-                  <div>{{ character.status }}</div>
+                  <div v-if="character.status === 'Dead'" class="font-weight-bold text-uppercase red--text text--accent-4">
+                    <v-icon color="red accent-4">mdi-account-remove</v-icon>
+                      <span class="pl-2">{{ character.status }}</span>
+                  </div>
+                  <div v-else-if="character.status === 'Alive'" class="font-weight-bold text-uppercase green--text text--accent-4">
+                  <v-icon color="green accent-4">mdi-account-multiple-check</v-icon>
+                      <span class="pl-2">{{ character.status }}</span>
+                  </div>
+                   <div v-else class="font-weight-bold text-uppercase blue-grey--text text--darken-3">
+                  <v-icon color="blue-grey darken-3">mdi-account-question</v-icon>
+                      <span class="pl-2">{{ character.status }}</span>
+                  </div>
                   <div class="font-weight-thin font-italic">{{ character.location.name }}</div>
-                  <div>{{ moment(character.created) }}</div>
+                  <div>{{ character.created }}</div>
                 </div>
                 </v-card-title>
               </v-flex>
@@ -108,14 +118,8 @@ methods: {
       this.characters = this.pages[this.index];
           }
       }
-    },
-  },
-
- created() {
-  moment = function (date) {
-    return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+    }
   }
-}
 }
 </script>
 <style>

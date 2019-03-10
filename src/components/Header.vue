@@ -8,9 +8,8 @@
     <v-btn
       flat
       href="https://github.com/pablovester"
-      target="_blank"
-    >
-        <v-icon>mdi-github-circle</v-icon>
+      target="_blank">
+      <v-icon>mdi-github-circle</v-icon>
       <span class="mr-2">by pablovester</span>
     </v-btn>
   </v-toolbar>
