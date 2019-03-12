@@ -1,13 +1,12 @@
 <template>
-  <v-card>
+  <v-card class="theme--dark">
     <v-container fluid grid-list-lg>
       <v-layout row wrap justify-center>
         <v-flex xs12 sm6>
-          <v-card v-for="character in characters">
+          <v-card v-for="character in characters" class="theme--dark grey darken-2">
             <v-layout class="align-center">
               <v-flex xs5>
                 <v-img
-                class="white--text"
                 :src="character.image" :alt="character.name"
                 contain>
                 </v-img>
@@ -15,30 +14,36 @@
               <v-flex xs7>
                 <v-card-title primary-title class="layout justify-center">
                 <div>
-                  <div class="headline font-weight-black text-uppercase text-xs-center">{{ character.name }}</div>
-                  <v-layout>
-                    <v-flex xs6 class="text-xs-center">Species:</v-flex>
-                    <v-flex xs6 class="text-xs-center">{{ character.species }}</v-flex>
+                  <div class="headline font-weight-black text-uppercase text-xs-center cyan--text">{{ character.name }}</div>
+                  <v-layout class="align-center border-line">
+                    <v-flex xs6 class="text-xs-center subheading font-weight-bold">Species:</v-flex>
+                    <v-flex xs6 class="text-xs-center font-weight-thin font-italic">{{ character.species }}</v-flex>
                   </v-layout>
-                  <v-layout>
-                    <v-flex xs6 class="text-xs-center">Status:</v-flex>
+                  <v-layout class="align-center border-line">
+                    <v-flex xs6 class="text-xs-center subheading font-weight-bold">Status:</v-flex>
                     <v-flex xs6 class="text-xs-center">
-                      <div v-if="character.status === 'Dead'" class="font-weight-bold text-uppercase red--text text--accent-4 text-xs-center">
+                      <div v-if="character.status === 'Dead'" class="font-weight-bold text-uppercase red--text text--accent-4 text-xs-center font-weight-thin">
                             <v-icon color="red accent-4" size="1.2rem">mdi-account-remove</v-icon>
                               {{ character.status }}
                       </div>
-                      <div v-else-if="character.status === 'Alive'" class="font-weight-bold text-uppercase green--text text--accent-4 text-xs-center">
+                      <div v-else-if="character.status === 'Alive'" class="font-weight-bold text-uppercase green--text text--accent-4 text-xs-center font-weight-thin">
                         <v-icon size="1.2rem" color="green accent-4">mdi-account-multiple-check</v-icon>
                               {{ character.status }}
                       </div>
-                       <div v-else class="font-weight-bold text-uppercase blue-grey--text text--darken-3 text-xs-center">
-                          <v-icon color="blue-grey darken-3" size="1.2rem">mdi-account-question</v-icon>
+                       <div v-else class="font-weight-bold text-uppercase lime--text text--lighten-1 text-xs-center font-weight-thin">
+                          <v-icon color="lime lighten-1" size="1.2rem">mdi-account-question</v-icon>
                               {{ character.status }}
                       </div>
                     </v-flex>
                    </v-layout>   
-                  <div class="font-weight-thin font-italic">{{ character.location.name }}</div>
-                  <div>{{ character.created | formatDate }}</div>
+                  <v-layout class="align-center border-line">
+                    <v-flex xs6 class="text-xs-center subheading font-weight-bold">Location:</v-flex>
+                    <v-flex xs6 class="text-xs-center font-weight-thin font-italic">{{ character.location.name }}</v-flex>
+                  </v-layout>
+                  <v-layout class="align-center border-line">
+                    <v-flex xs6 class="text-xs-center subheading font-weight-bold">Created:</v-flex>
+                    <v-flex xs6 class="text-xs-center font-weight-thin font-italic">{{  character.created | formatDate }}</v-flex>
+                  </v-layout>
                 </div>
                 </v-card-title>
               </v-flex>
@@ -91,7 +96,7 @@ filters: {
       var year = date.split('-')[0];
       var month = date.split('-')[1];
       var day = date.split('-')[2].slice(0,2);
-      return year + '/' + month + '/' + day;
+      return day + '/' + month + '/' + year;
     }
   },
 
@@ -142,4 +147,8 @@ methods: {
 }
 </script>
 <style>
+.border-line {
+  border-bottom: 1px solid #CFD8DC;
+  border-bottom-style: dotted;
+}
 </style>
