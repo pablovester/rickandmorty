@@ -14,7 +14,7 @@
               <v-flex xs7>
                 <v-card-title primary-title class="layout justify-center">
                 <div>
-                  <div class="headline font-weight-black text-uppercase text-xs-center cyan--text">{{ character.name }}</div>
+                  <div class="headline font-weight-black text-uppercase text-xs-center cyan--text text--accent-3">{{ character.name }}</div>
                   <v-layout class="align-center border-line">
                     <v-flex xs6 class="text-xs-center subheading font-weight-bold">Species:</v-flex>
                     <v-flex xs6 class="text-xs-center font-weight-thin font-italic">{{ character.species }}</v-flex>
@@ -38,7 +38,7 @@
                    </v-layout>   
                   <v-layout class="align-center border-line">
                     <v-flex xs6 class="text-xs-center subheading font-weight-bold">Location:</v-flex>
-                    <v-flex xs6 class="text-xs-center font-weight-thin font-italic">{{ character.location.name }}</v-flex>
+                    <v-flex xs6 class="text-xs-center font-weight-thin font-italic text-capitalize">{{ character.location.name }}</v-flex>
                   </v-layout>
                   <v-layout class="align-center border-line">
                     <v-flex xs6 class="text-xs-center subheading font-weight-bold">Created:</v-flex>
@@ -54,7 +54,7 @@
             <v-layout align-center justify-center row>
               <v-flex>
                 <div class="text-xs-center">
-                  <v-btn @click="prevPage" class="lime lighten-1">
+                  <v-btn @click="prevPage" class="lime darken-1">
                     <v-icon>mdi-arrow-left-drop-circle-outline</v-icon>
                     <v-spacer></v-spacer>
                     <span>Prev</span>
@@ -63,7 +63,7 @@
               </v-flex>
               <v-flex>  
                 <div class="text-xs-center">
-                  <v-btn @click="nextPage" class="lime lighten-1">
+                  <v-btn @click="nextPage" class="lime darken-1">
                     <span>Next</span>
                     <v-icon>mdi-arrow-right-drop-circle-outline</v-icon>
                     <v-spacer></v-spacer>

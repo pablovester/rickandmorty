@@ -1,7 +1,7 @@
  <template> 
-  <v-toolbar app class="lime lighten-1">
+  <v-toolbar app class="lime darken-1">
     <v-toolbar-title class="headline text-uppercase">
-      <span class="cyan--text">Rick and Morty</span>
+      <span class="cyan--text text--accent-3">Rick and Morty</span>
       <span> character list</span>
     </v-toolbar-title>
     <v-spacer></v-spacer>
