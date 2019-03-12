@@ -4,7 +4,8 @@ import axios from 'axios'
   <v-app>
     <Header/>
     <v-content>
-      <Cards/>
+      <Cards v-if="porPaginas==true"></Cards>
+      <Page v-if="porPaginas==false"/></Page>
     </v-content>
   </v-app>
 </template>
@@ -12,16 +13,18 @@ import axios from 'axios'
 <script>
 import Header from './components/Header'
 import Cards from './components/Cards'
+import Page from './components/Page'
 
 export default {
   name: 'App',
   components: {
     Header,
-    Cards
+    Cards,
+    Page
   },
   data () {
     return {
-      //
+      porPaginas: true
     }
   }
 }
