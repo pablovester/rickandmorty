@@ -14,35 +14,35 @@
               <v-flex xs7>
                 <v-card-title primary-title class="layout justify-center">
                 <div>
-                  <div class="headline font-weight-black text-uppercase text-xs-center cyan--text text--accent-3">{{ character.name }}</div>
+                  <div class="title font-weight-black text-uppercase text-xs-center cyan--text text--accent-3">{{ character.name }}</div>
                   <v-layout class="align-center border-line">
-                    <v-flex xs6 class="text-xs-center subheading font-weight-bold">Species:</v-flex>
-                    <v-flex xs6 class="text-xs-center font-weight-thin font-italic">{{ character.species }}</v-flex>
+                    <v-flex xs6 class="text-xs-left subheading font-weight-bold">Species:</v-flex>
+                    <v-flex xs6 class="text-xs-right font-weight-thin font-italic">{{ character.species }}</v-flex>
                   </v-layout>
                   <v-layout class="align-center border-line">
-                    <v-flex xs6 class="text-xs-center subheading font-weight-bold">Status:</v-flex>
-                    <v-flex xs6 class="text-xs-center">
-                      <div v-if="character.status === 'Dead'" class="font-weight-bold text-uppercase red--text text--accent-4 text-xs-center font-weight-thin">
+                    <v-flex xs6 class="text-xs-left subheading font-weight-bold">Status:</v-flex>
+                    <v-flex xs6 class="text-xs-right">
+                      <div v-if="character.status === 'Dead'" class="font-weight-bold text-uppercase red--text text--accent-4 text-xs-right font-weight-thin same-line">
                             <v-icon color="red accent-4" size="1.2rem">mdi-account-remove</v-icon>
                               {{ character.status }}
                       </div>
-                      <div v-else-if="character.status === 'Alive'" class="font-weight-bold text-uppercase green--text text--accent-4 text-xs-center font-weight-thin">
+                      <div v-else-if="character.status === 'Alive'" class="font-weight-bold text-uppercase green--text text--accent-4 text-xs-right font-weight-thin same-line">
                         <v-icon size="1.2rem" color="green accent-4">mdi-account-multiple-check</v-icon>
                               {{ character.status }}
                       </div>
-                       <div v-else class="font-weight-bold text-uppercase lime--text text--lighten-1 text-xs-center font-weight-thin">
+                       <div v-else class="font-weight-bold text-uppercase lime--text text--lighten-1 text-xs-right font-weight-thin same-line">
                           <v-icon color="lime lighten-1" size="1.2rem">mdi-account-question</v-icon>
                               {{ character.status }}
                       </div>
                     </v-flex>
                    </v-layout>   
                   <v-layout class="align-center border-line">
-                    <v-flex xs6 class="text-xs-center subheading font-weight-bold">Location:</v-flex>
-                    <v-flex xs6 class="text-xs-center font-weight-thin font-italic text-capitalize">{{ character.location.name }}</v-flex>
+                    <v-flex xs6 class="text-xs-left subheading font-weight-bold">Location:</v-flex>
+                    <v-flex xs6 class="text-xs-right font-weight-thin font-italic text-capitalize">{{ character.location.name }}</v-flex>
                   </v-layout>
                   <v-layout class="align-center border-line">
-                    <v-flex xs6 class="text-xs-center subheading font-weight-bold">Created:</v-flex>
-                    <v-flex xs6 class="text-xs-center font-weight-thin font-italic">{{  character.created | formatDate }}</v-flex>
+                    <v-flex xs6 class="text-xs-left subheading font-weight-bold">Created:</v-flex>
+                    <v-flex xs6 class="text-xs-right font-weight-thin font-italic">{{  character.created | formatDate }}</v-flex>
                   </v-layout>
                 </div>
                 </v-card-title>
@@ -87,8 +87,7 @@ data: () => ({
             pages: [],
             index: 0,
             prev: '',
-            next: '',
-            date: []
+            next: ''
             }),
 
 filters: {
@@ -117,7 +116,6 @@ methods: {
       this.pages[this.index] = res.data.results;
       this.prev = res.data.info.prev;
       this.next = res.data.info.next;
-      this.date = res.data.results.created
       })
       .catch(err => {
         alert(err);
@@ -147,6 +145,13 @@ methods: {
 }
 </script>
 <style>
+div.same-line {
+  clear: both;
+
+display: inline-block;
+
+white-space: nowrap;
+}
 .border-line {
   border-bottom: 1px solid #CFD8DC;
   border-bottom-style: dotted;

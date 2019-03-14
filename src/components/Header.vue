@@ -5,7 +5,6 @@
       <span> character list</span>
     </v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-btn @click="porPaginas = !porPaginas"><span>Prueba</span></v-btn>
     <v-btn
       flat
       href="https://github.com/pablovester"
