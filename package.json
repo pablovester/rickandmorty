@@ -5,10 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "gh-pages -d -dist"
   },
+  "homepage": "https://pablovester.github.io/rickandmorty",
   "dependencies": {
     "axios": "^0.18.0",
+    "gh-pages": "^2.0.1",
     "moment": "^2.24.0",
     "particles.js": "^2.0.0",
     "vue": "^2.6.6",
